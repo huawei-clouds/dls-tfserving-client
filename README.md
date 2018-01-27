@@ -14,16 +14,22 @@ git clone https://github.com/huawei-clouds/dls-tfserving-client.git
 
 ### Example
 
-Take **Image Classification** for example（the input data is one image under the folder of dls-tfserving-client/data），the usages of Java and Python predict client are：
+Take **Image Classification** for example（the input data is one image under the folder of dls-tfserving-client/data）, the usages of Java and Python predict client are：
 
 #### Java Predict Client
 
 Execute the following codes successively:
 
 ```sh
-cd dls-tfserving-client
+cd dls-tfserving-client/java
 mvn clean install
-java -jar target/predict-1.0.0.jar image_classification --host=xx.xx.xx.xx --port=xxxx --dataPath="xx/dls-tfserving-client/data/flowers/flower1.jpg" --labelsFilePath="xx/dls-tfserving-client/data/flowers/labels.txt" --modelName="resnet_v1_50"
+java -jar target/predict-1.0.0.jar \
+image_classification \
+--host=xx.xx.xx.xx \
+--port=xxxx \
+--dataPath="xx/dls-tfserving-client/data/flowers/flower1.jpg" \
+--labelsFilePath="xx/dls-tfserving-client/data/flowers/labels.txt" \
+--modelName="resnet_v1_50"
 ```
 
 #### Python Predict Client
@@ -31,7 +37,13 @@ java -jar target/predict-1.0.0.jar image_classification --host=xx.xx.xx.xx --por
 Directly execute the following code：
 
 ```sh
-python predict.py --task_type="image_classification" --host=xx.xx.xx.xx --port=xxxx --data_path="xx/dls-tfserving-client/data/flowers/flower1.jpg" --labels_file_path="xx/dls-tfserving-client/data/flowers/labels.txt" --model_name="resnet_v1_50"
+python dls-tfserving-client/python/predict.py \
+--task_type="image_classification" \
+--host=xx.xx.xx.xx \
+--port=xxxx \
+--data_path="xx/dls-tfserving-client/data/flowers/flower1.jpg" \
+--labels_file_path="xx/dls-tfserving-client/data/flowers/labels.txt" \
+--model_name="resnet_v1_50"
 ```
 
 
