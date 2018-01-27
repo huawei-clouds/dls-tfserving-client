@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+option cc_enable_arenas = true;
+option java_multiple_files = true;
+option java_package = "org.tensorflow.serving";
+option java_outer_classname = "Model";
+
+package tensorflow.serving;
+
+import "google/protobuf/wrappers.proto";
+
+
+// Metadata for an inference request such as the model name and version.
+message ModelSpec {
+  // Required servable name.
+  string name = 1;
+
+  // Optional version. If unspecified, will use the latest (numerical) version.
+  // Typically not needed unless coordinating across multiple models that were
+  // co-trained and/or have inter-dependencies on the versions used at inference
+  // time.
+  google.protobuf.Int64Value version = 2;
+  //Int64Value version = 2;
+
+  // A named signature to evaluate. If unspecified, the default signature will
+  // be used. Note that only MultiInference will initially support this.
+  string signature_name = 3;
+}
+

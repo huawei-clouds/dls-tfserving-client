@@ -1,0 +1,9 @@
+venv
+build
+dist
+*_pb2.py
+*.egg-info
+.idea
+*.pyc
+.eggs
+.DS_Store
