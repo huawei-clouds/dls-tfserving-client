@@ -11,7 +11,7 @@ import argparse
 import numpy as np
 
 PRINT_RESPONSE = True 
-MAX_RESPONSE_TIME = 5
+MAX_RESPONSE_TIME = 50
 
 class PredictClient(object):
 
@@ -109,6 +109,7 @@ class ImageClassificationPredictClient(PredictClient):
   def do_predict(self):
     from PIL import Image
     image = Image.open(self.ns.data_path)
+    image = image.convert('RGB')
     image = np.asarray(image, dtype = np.float32)
     image = image[np.newaxis, :, :, :]
     input_data = {self.ns.input_key: image}
