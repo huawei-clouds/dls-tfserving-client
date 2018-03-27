@@ -110,7 +110,7 @@ We have tested the following installation under the Anaconda environment (Anacon
 
    Note: **xx** indicates the directory where "dls-tfserving-client" is located.
 
-s
+
 
 Directly execute the following code：
 
